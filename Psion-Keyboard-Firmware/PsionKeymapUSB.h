@@ -1,14 +1,14 @@
 /*
- PsionKeymapUSB.h
- 
- Maps the keys to ASCII symbols as shown here:
- https://www.arduino.cc/en/Reference/KeyboardModifiers
- Note that the "Fn" and "Menu" keys are
- mapped to AltGr and Alt respectively.
- This is to make some kind of Plug 'n Play
- possible.
- 
- */
+   PsionKeymapUSB.h
+
+   Maps the keys to ASCII symbols as shown here:
+https://www.arduino.cc/en/Reference/KeyboardModifiers
+Note that the "Fn" and "Menu" keys are
+mapped to AltGr and Alt respectively.
+This is to make some kind of Plug 'n Play
+possible.
+
+*/
 
 #define KEY_A          0x61
 #define KEY_B          0x62
@@ -64,15 +64,36 @@
 #define KEY_LSHIFT     0x81
 #define KEY_MENU       0x82   // Mapped as Left Alt
 #define KEY_RSHIFT     0x85
-#define KEY_FN         KEY_RIGHT_ALT   // Mapped as AltGr
+#define KEY_FN         0x86   // Mapped as AltGr
+#define KEY_HASH         0x35 
+#define KEY_BACKSLASH   0xEC
+#define KEY_AT        0x64
+#define KEY_LT          0x60
+#define KEY_GT          0x62
+#define KEY_SQOPEN    0x91
+#define  KEY_SQCLOSE     0x93
+#define  KEY_CURLYOPEN  0x123
+#define  KEY_CURLYCLOSE  0x125
+
 
 static int keyScancode [NROWS] [NCOLS] = {
-  { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
-  { KEY_1   ,KEY_2     ,KEY_3  ,KEY_4     ,KEY_5         ,KEY_6          ,0          ,0          ,0        ,0      ,0        ,0       },
-  { KEY_7   ,KEY_8     ,KEY_9  ,KEY_0     ,KEY_BACKSPACE ,KEY_APOSTROPHE ,0          ,0          ,0        ,0      ,0        ,0       },
-  { KEY_Q   ,KEY_W     ,KEY_E  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
-  { KEY_U   ,KEY_I     ,KEY_O  ,KEY_P     ,KEY_L         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
-  { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
-  { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_DOWN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
-  { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,KEY_RSHIFT ,0        ,0      ,0        ,0       }
+    { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
+    { KEY_1   ,KEY_2     ,KEY_3  ,KEY_4     ,KEY_5         ,KEY_6          ,0          ,0          ,0        ,0      ,0        ,0       },
+    { KEY_7   ,KEY_8     ,KEY_9  ,KEY_0     ,KEY_BACKSPACE ,KEY_APOSTROPHE ,0          ,0          ,0        ,0      ,0        ,0       },
+    { KEY_Q   ,KEY_W     ,KEY_E  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
+    { KEY_U   ,KEY_I     ,KEY_O  ,KEY_P     ,KEY_L         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
+    { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
+    { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_DOWN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
+    { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,KEY_RSHIFT ,0        ,0      ,0        ,0       }
+};
+
+static int fnSpecialKeys [NROWS] [NCOLS] = {
+    { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
+    { KEY_1   ,KEY_HASH     ,KEY_BACKSLASH,KEY_AT     ,KEY_LT         ,KEY_GT          ,0          ,0          ,0        ,0      ,0        ,0       },
+    { KEY_SQOPEN   ,KEY_SQCLOSE     ,KEY_CURLYOPEN  ,KEY_CURLYCLOSE     ,KEY_BACKSPACE ,KEY_APOSTROPHE ,0          ,0          ,0        ,0      ,0        ,0       },
+    { KEY_Q   ,KEY_W     ,KEY_E  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
+    { KEY_U   ,KEY_I     ,KEY_O  ,KEY_P     ,KEY_L         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
+    { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
+    { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_DOWN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
+    { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,KEY_RSHIFT ,0        ,0      ,0        ,0       }
 };

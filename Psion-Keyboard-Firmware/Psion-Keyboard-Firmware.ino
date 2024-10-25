@@ -23,11 +23,14 @@
 int keypressArrayCurrent [NROWS] [NCOLS];
 int keypressArrayPrevious [NROWS] [NCOLS];
 
+bool fn_pressed;
 unsigned long previousTime;
 unsigned int minDelay;
 
+
 void setup() {
 
+  fn_pressed = false;
   previousTime = 0;
   minDelay = 1000 / MAX_SCAN_RATE;
 
@@ -178,7 +181,9 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
               Keyboard.press(KEY_BACKSPACE);
             }
 
-          } else if ( (row == 0 && col == 6) || (row == 7 && col == 7) ) {
+  
+          
+        } else if ( (row == 0 && col == 6) || (row == 7 && col == 7) ) {
             // Special handling of the SHIFT keys
             // Since we need to press SHIFT to send the KEY_DELETE, we need
             // to make sure that we don't send the shift key as well unless
@@ -199,26 +204,50 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
               Keyboard.press(keyScancode[row][col]);
             }
           } else {
-            // "Normal" keypress, just send as is
-            Keyboard.press(keyScancode[row][col]);
+            
+            if (pressedArray[6][9] > 0) {//if the fn button is pressed  
+              
+             fn_pressed = true;
+             if (SERIAL_ENABLED) {
+               Serial.println("FN PRESSED");
+               Serial.print("0x");
+               Serial.print(fnSpecialKeys[row][col], HEX);
+               Serial.println(" pressed with fn");
+             }              
+              Keyboard.press(fnSpecialKeys[row][col]);
+            } else {
+              // "Normal" keypress, just send as is
+               Keyboard.press(keyScancode[row][col]);
+            }
           }
 
 
           // This handles the release of keys
         } else if ( pressedArray[row][col] < previousArray[row][col] ) {
 
-          if (SERIAL_ENABLED) {
-            Serial.print("0x");
-            Serial.print(keyScancode[row][col], HEX);
-            Serial.println(" released");
-          };
-
+        
           // Make sure we release either BACKSPACE or DELETE; whatever was pressed
           if ( row == 2 && col == 4) {
             Keyboard.release(KEY_DELETE);
             Keyboard.release(KEY_BACKSPACE);
+            Keyboard.release(fnSpecialKeys[row][col]);
+          } else {
+
+            if (SERIAL_ENABLED) {
+              Serial.print("0x");
+              
+              Serial.print(keyScancode[row][col], HEX);
+              Serial.println(" released");
+            };
+            if (fn_pressed) {
+            Keyboard.release(fnSpecialKeys[row][col]);
+            fn_pressed = false;
+
           } else {
             Keyboard.release(keyScancode[row][col]);
+
+            
+          }
           }
 
         }
