@@ -59,7 +59,6 @@ void setup() {
 void loop() {
 
   if ( (millis() - previousTime) >= minDelay ) {
-
     // Scan the keyboard matrix
     int nKeysPressed = scanKeyboard(keypressArrayCurrent);
 
@@ -211,8 +210,12 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
              if (SERIAL_ENABLED) {
                Serial.println("FN PRESSED");
                Serial.print("0x");
+               Serial.print(keyScancode[row][col], HEX);
+               Serial.println(" original");
+               Serial.print("0x");
                Serial.print(fnSpecialKeys[row][col], HEX);
                Serial.println(" pressed with fn");
+               
              }              
               Keyboard.press(fnSpecialKeys[row][col]);
             } else {
@@ -233,17 +236,27 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
             Keyboard.release(fnSpecialKeys[row][col]);
           } else {
 
+            
+            if (fn_pressed) {
+              Keyboard.release(fnSpecialKeys[row][col]);
+              fn_pressed = false;
+               Serial.println("FN RELEASED");
+               Serial.print("0x");
+               Serial.print(keyScancode[row][col], HEX);
+               Serial.println(" original");
+               Serial.print("0x");
+               Serial.print(fnSpecialKeys[row][col], HEX);
+               Serial.println(" released with fn");
+
+          
+          
+          } else {
             if (SERIAL_ENABLED) {
-              Serial.print("0x");
-              
+              Serial.print("0x");  
               Serial.print(keyScancode[row][col], HEX);
               Serial.println(" released");
             };
-            if (fn_pressed) {
-            Keyboard.release(fnSpecialKeys[row][col]);
-            fn_pressed = false;
 
-          } else {
             Keyboard.release(keyScancode[row][col]);
 
             

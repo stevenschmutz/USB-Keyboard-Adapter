@@ -62,18 +62,19 @@ possible.
 #define KEY_UP         0xDA
 #define KEY_CTRL       0x80   // Left CTRL
 #define KEY_LSHIFT     0x81
-#define KEY_MENU       0x82   // Mapped as Left Alt
+#define KEY_MENU       0x83   // Mapped as Super
 #define KEY_RSHIFT     0x85
 #define KEY_FN         0x86   // Mapped as AltGr
-#define KEY_HASH         0x35 
-#define KEY_BACKSLASH   0xEC
-#define KEY_AT        0x64
-#define KEY_LT          0x60
-#define KEY_GT          0x62
-#define KEY_SQOPEN    0x91
-#define  KEY_SQCLOSE     0x93
-#define  KEY_CURLYOPEN  0x123
-#define  KEY_CURLYCLOSE  0x125
+#define KEY_UNDER       0x5F
+#define KEY_HASH       0x23 
+#define KEY_BACKSLASH  0x84
+#define KEY_AT        0x40
+#define KEY_LT          0x3C  
+#define KEY_GT          0x3E
+#define KEY_SQOPEN    0x5B
+#define  KEY_SQCLOSE     0x5D
+#define  KEY_CURLYOPEN  0x7B
+#define  KEY_CURLYCLOSE  0x7D
 
 
 static int keyScancode [NROWS] [NCOLS] = {
@@ -89,7 +90,7 @@ static int keyScancode [NROWS] [NCOLS] = {
 
 static int fnSpecialKeys [NROWS] [NCOLS] = {
     { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
-    { KEY_1   ,KEY_HASH     ,KEY_BACKSLASH,KEY_AT     ,KEY_LT         ,KEY_GT          ,0          ,0          ,0        ,0      ,0        ,0       },
+    { KEY_UNDER   ,KEY_HASH     ,KEY_BACKSLASH,KEY_AT     ,KEY_LT         ,KEY_GT          ,0          ,0          ,0        ,0      ,0        ,0       },
     { KEY_SQOPEN   ,KEY_SQCLOSE     ,KEY_CURLYOPEN  ,KEY_CURLYCLOSE     ,KEY_BACKSPACE ,KEY_APOSTROPHE ,0          ,0          ,0        ,0      ,0        ,0       },
     { KEY_Q   ,KEY_W     ,KEY_E  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
     { KEY_U   ,KEY_I     ,KEY_O  ,KEY_P     ,KEY_L         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
