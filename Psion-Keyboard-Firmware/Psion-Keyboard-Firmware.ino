@@ -27,7 +27,6 @@ bool fn_pressed;
 unsigned long previousTime;
 unsigned int minDelay;
 
-
 void setup() {
 
   fn_pressed = false;
@@ -214,10 +213,10 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
                Serial.println(" original");
                Serial.print("0x");
                Serial.print(fnSpecialKeys[row][col], HEX);
-               Serial.println(" pressed with fn");
+               Serial.println(" write with fn");
                
              }              
-              Keyboard.press(fnSpecialKeys[row][col]);
+              Keyboard.write(fnSpecialKeys[row][col]);
             } else {
               // "Normal" keypress, just send as is
                Keyboard.press(keyScancode[row][col]);
@@ -238,6 +237,7 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
 
             
             if (fn_pressed) {
+            /*
               Keyboard.release(fnSpecialKeys[row][col]);
               fn_pressed = false;
                Serial.println("FN RELEASED");
@@ -247,8 +247,8 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
                Serial.print("0x");
                Serial.print(fnSpecialKeys[row][col], HEX);
                Serial.println(" released with fn");
-
-          
+        
+          */
           
           } else {
             if (SERIAL_ENABLED) {
