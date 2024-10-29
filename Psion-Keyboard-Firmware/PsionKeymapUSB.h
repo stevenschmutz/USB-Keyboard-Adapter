@@ -76,6 +76,18 @@ possible.
 #define  KEY_CURLYOPEN  0x7B
 #define  KEY_CURLYCLOSE  0x7D
 #define  KEY_PLUS  0xDF
+#define  KEY_HOME  0xD2
+#define  KEY_END  0xD5
+#define  KEY_PGUP  0xD3
+#define  KEY_PGDN  0xD6
+#define  KEY_MINUS  0xDE
+#define  KEY_SLSH  0xDC
+
+// From here https://github.com/tmk/tmk_keyboard/wiki/Keycode
+#define  KEY_COLON  0x33
+#define  KEY_SEMIC  0x33
+#define  KEY_EQL  0x2E
+#define  KEY_QUES  0xD2
 
 
 static int keyScancode [NROWS] [NCOLS] = {
@@ -90,12 +102,12 @@ static int keyScancode [NROWS] [NCOLS] = {
 };
 
 static int fnSpecialKeys [NROWS] [NCOLS] = {
-    { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
+    { 0       ,KEY_SPACE ,KEY_PGUP ,KEY_SLSH ,KEY_HOME      ,KEY_END      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
     { KEY_UNDER   ,KEY_HASH     ,KEY_BACKSLASH,KEY_AT     ,KEY_LT         ,KEY_GT          ,0          ,0          ,0        ,0      ,0        ,0       },
-    { KEY_SQOPEN   ,KEY_SQCLOSE     ,KEY_CURLYOPEN  ,KEY_CURLYCLOSE     ,KEY_BACKSPACE ,KEY_APOSTROPHE ,0          ,0          ,0        ,0      ,0        ,0       },
+    { KEY_SQOPEN   ,KEY_SQCLOSE     ,KEY_CURLYOPEN  ,KEY_CURLYCLOSE     ,KEY_BACKSPACE ,KEY_COLON ,0          ,0          ,0        ,0      ,0        ,0       },
     { KEY_Q   ,KEY_W     ,KEY_E  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
-    { KEY_U   ,KEY_PLUS     ,KEY_O  ,KEY_P     ,KEY_L         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
+    { KEY_U   ,KEY_PLUS     ,KEY_O  ,KEY_P     ,KEY_SEMIC         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
     { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
-    { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_DOWN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
+    { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_PGDN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
     { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,KEY_RSHIFT ,0        ,0      ,0        ,0       }
 };
