@@ -54,6 +54,8 @@ possible.
 #define KEY_TAB        0xB3
 #define KEY_SPACE      0x20
 #define KEY_APOSTROPHE 0x27
+
+#define KEY_GRAVE      0x27 //Not working
 #define KEY_COMMA      0x2C
 #define KEY_PERIOD     0x2E
 #define KEY_RIGHT      0xD7
@@ -63,8 +65,8 @@ possible.
 #define KEY_CTRL       0x80   // Left CTRL
 #define KEY_LSHIFT     0x81
 #define KEY_MENU       0x83   // Mapped as Super
-#define KEY_RSHIFT     0x85
-#define KEY_FN         0x86   // Mapped as AltGr
+#define KEY_RSHIFT     0x85 // Mapped as alt
+#define KEY_FN         0x86   // Mapped as ALTGR
 #define KEY_UNDER       0x5F
 #define KEY_HASH       0x23 
 #define KEY_BACKSLASH  0x84
@@ -75,25 +77,25 @@ possible.
 #define  KEY_SQCLOSE     0x5D
 #define  KEY_CURLYOPEN  0x7B
 #define  KEY_CURLYCLOSE  0x7D
-#define  KEY_PLUS  0xDF
+#define  KEY_PLUS  0xDF 
 #define  KEY_HOME  0xD2
 #define  KEY_END  0xD5
 #define  KEY_PGUP  0xD3
 #define  KEY_PGDN  0xD6
-#define  KEY_MINUS  0xDE
-#define  KEY_SLSH  0xDC
+#define  KEY_MINUS  0xDE //not working
+#define  KEY_SLSH  0xDC //not working 
 
 // From here https://github.com/tmk/tmk_keyboard/wiki/Keycode
-#define  KEY_COLON  0x33
-#define  KEY_SEMIC  0x33
-#define  KEY_EQL  0x2E
+#define  KEY_COLON  0x33 //Not working
+#define  KEY_SEMIC  0x33 //not working
+#define  KEY_EQL  0x2E //not working
 #define  KEY_QUES  0xD2
 
 
 static int keyScancode [NROWS] [NCOLS] = {
     { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
     { KEY_1   ,KEY_2     ,KEY_3  ,KEY_4     ,KEY_5         ,KEY_6          ,0          ,0          ,0        ,0      ,0        ,0       },
-    { KEY_7   ,KEY_8     ,KEY_9  ,KEY_0     ,KEY_BACKSPACE ,KEY_APOSTROPHE ,0          ,0          ,0        ,0      ,0        ,0       },
+    { KEY_7   ,KEY_8     ,KEY_9  ,KEY_0     ,KEY_BACKSPACE ,KEY_GRAVE ,0          ,0          ,0        ,0      ,0        ,0       },
     { KEY_Q   ,KEY_W     ,KEY_E  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
     { KEY_U   ,KEY_I     ,KEY_O  ,KEY_P     ,KEY_L         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
     { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
