@@ -237,9 +237,10 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
 
             
             if (fn_pressed) {
-            /*
-              Keyboard.release(fnSpecialKeys[row][col]);
               fn_pressed = false;
+            
+               Keyboard.release(fnSpecialKeys[row][col]);
+            
                Serial.println("FN RELEASED");
                Serial.print("0x");
                Serial.print(keyScancode[row][col], HEX);
@@ -248,7 +249,6 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
                Serial.print(fnSpecialKeys[row][col], HEX);
                Serial.println(" released with fn");
         
-          */
           
           } else {
             if (SERIAL_ENABLED) {
@@ -267,5 +267,4 @@ void sendKeys ( int pressedArray [] [NCOLS], int previousArray [] [NCOLS] ) {
       }
     }
   }
-
 }
