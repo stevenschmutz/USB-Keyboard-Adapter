@@ -87,10 +87,13 @@ possible.
 #define KEY_RALT     0x82
 #define  KEY_SEMIC  0x3B 
 #define  KEY_EQL  0x3D
+#define KEY_PIPE  0x7C 
+#define KEY_GRAVE  0x60
+#define  KEY_QUES  0x3F
 
-#define  KEY_QUES  0x3F //not working
-#define KEY_GRAVE  0x60 //Not working
-#define KEY_PIPE  0x7C //Not working
+//NOt working below
+#define  KEY_QUOTDBL  0x22
+
 
 static int keyScancode [NROWS] [NCOLS] = {
     { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
@@ -107,9 +110,9 @@ static int fnSpecialKeys [NROWS] [NCOLS] = {
     { 0       ,KEY_SPACE ,KEY_PGUP ,KEY_SLSH ,KEY_HOME      ,KEY_END      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
     { KEY_UNDER   ,KEY_HASH     ,KEY_BACKSLASH,KEY_AT     ,KEY_LT         ,KEY_GT          ,0          ,0          ,0        ,0      ,0        ,0       },
     { KEY_SQOPEN   ,KEY_SQCLOSE     ,KEY_CURLYOPEN  ,KEY_CURLYCLOSE     ,KEY_BACKSPACE ,KEY_COLON ,0          ,0          ,0        ,0      ,0        ,0       },
-    { 0   ,KEY_PRSCREEN     ,KEY_PIPE  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
+    { KEY_APOSTROPHE  , KEY_QUOTDBL   ,KEY_PIPE  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
     { 0   ,KEY_PLUS     ,KEY_MINUS  ,KEY_EQL     ,KEY_SEMIC         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
     { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
-    { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_PGDN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
-    { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,0      ,0        ,0      ,0        ,0       }
+    { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_QUES    ,KEY_PGDN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
+    { KEY_PRSCREEN   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,0      ,0        ,0      ,0        ,0       }
 };
