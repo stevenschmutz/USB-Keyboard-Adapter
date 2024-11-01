@@ -55,7 +55,6 @@ possible.
 #define KEY_SPACE      0x20
 #define KEY_APOSTROPHE 0x27
 
-#define KEY_GRAVE      0x27 //Not working
 #define KEY_COMMA      0x2C
 #define KEY_PERIOD     0x2E
 #define KEY_RIGHT      0xD7
@@ -65,11 +64,10 @@ possible.
 #define KEY_CTRL       0x80   // Left CTRL
 #define KEY_LSHIFT     0x81
 #define KEY_MENU       0x83   // Mapped as Super
-#define KEY_RSHIFT     0x85 // Mapped as alt
 #define KEY_FN         0x86   // Mapped as ALTGR
 #define KEY_UNDER       0x5F
 #define KEY_HASH       0x23 
-#define KEY_BACKSLASH  0x84
+#define KEY_BACKSLASH  0x5C
 #define KEY_AT        0x40
 #define KEY_LT          0x3C  
 #define KEY_GT          0x3E
@@ -82,15 +80,17 @@ possible.
 #define  KEY_END  0xD5
 #define  KEY_PGUP  0xD3
 #define  KEY_PGDN  0xD6
-#define  KEY_MINUS  0xDE //not working
-#define  KEY_SLSH  0xDC //not working 
+#define  KEY_COLON  0x3A
+#define  KEY_SLSH  0xDC  
+#define KEY_PRSCREEN  0xCE
+#define  KEY_MINUS  0xDE 
+#define KEY_RALT     0x82
+#define  KEY_SEMIC  0x3B 
+#define  KEY_EQL  0x3D
 
-// From here https://github.com/tmk/tmk_keyboard/wiki/Keycode
-#define  KEY_COLON  0x33 //Not working
-#define  KEY_SEMIC  0x33 //not working
-#define  KEY_EQL  0x2E //not working
-#define  KEY_QUES  0xD2
-
+#define  KEY_QUES  0x3F //not working
+#define KEY_GRAVE  0x60 //Not working
+#define KEY_PIPE  0x7C //Not working
 
 static int keyScancode [NROWS] [NCOLS] = {
     { 0       ,KEY_SPACE ,KEY_UP ,KEY_COMMA ,KEY_LEFT      ,KEY_RIGHT      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
@@ -100,16 +100,16 @@ static int keyScancode [NROWS] [NCOLS] = {
     { KEY_U   ,KEY_I     ,KEY_O  ,KEY_P     ,KEY_L         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
     { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
     { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_DOWN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
-    { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,KEY_RSHIFT ,0        ,0      ,0        ,0       }
+    { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,KEY_RALT ,0        ,0      ,0        ,0       }
 };
 
 static int fnSpecialKeys [NROWS] [NCOLS] = {
     { 0       ,KEY_SPACE ,KEY_PGUP ,KEY_SLSH ,KEY_HOME      ,KEY_END      ,KEY_LSHIFT ,0          ,0        ,0      ,0        ,0       },
     { KEY_UNDER   ,KEY_HASH     ,KEY_BACKSLASH,KEY_AT     ,KEY_LT         ,KEY_GT          ,0          ,0          ,0        ,0      ,0        ,0       },
     { KEY_SQOPEN   ,KEY_SQCLOSE     ,KEY_CURLYOPEN  ,KEY_CURLYCLOSE     ,KEY_BACKSPACE ,KEY_COLON ,0          ,0          ,0        ,0      ,0        ,0       },
-    { KEY_Q   ,KEY_W     ,KEY_E  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
-    { KEY_U   ,KEY_PLUS     ,KEY_O  ,KEY_P     ,KEY_SEMIC         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
+    { 0   ,KEY_PRSCREEN     ,KEY_PIPE  ,KEY_R     ,KEY_T         ,KEY_Y          ,0          ,0          ,0        ,0      ,0        ,KEY_ESC },
+    { 0   ,KEY_PLUS     ,KEY_MINUS  ,KEY_EQL     ,KEY_SEMIC         ,KEY_ENTER      ,0          ,0          ,0        ,0      ,KEY_MENU ,0       },
     { KEY_TAB ,KEY_A     ,KEY_S  ,KEY_D     ,KEY_F         ,KEY_G          ,0          ,0          ,KEY_CTRL ,0      ,0        ,0       },
     { KEY_H   ,KEY_J     ,KEY_K  ,KEY_M     ,KEY_PERIOD    ,KEY_PGDN       ,0          ,0          ,0        ,KEY_FN ,0        ,0       },
-    { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,KEY_RSHIFT ,0        ,0      ,0        ,0       }
+    { KEY_Z   ,KEY_X     ,KEY_C  ,KEY_V     ,KEY_B         ,KEY_N          ,0          ,0      ,0        ,0      ,0        ,0       }
 };
